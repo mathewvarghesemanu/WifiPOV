@@ -11,6 +11,7 @@ int LED7 = 8;
 int LED8 = 9;
 int i = 0;
 int textlength;
+char ch, text[35];
 
 void setup()
 {
@@ -29,16 +30,18 @@ void setup()
 
 void loop()
 {
-  i=0;
+  i = 0;
   while (myserial.available())
   {
-    
+
     ch = myserial.read();
     if (ch == '\n')
-      text(i) = '\0';
-      textlength=i;
+    {
+      text[i] = '\0';
+      textlength = i;
+    }
     else
-      text(i) = ch;
+      text[i] = ch;
   }
 }
 
